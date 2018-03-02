@@ -1,0 +1,28 @@
+{
+  "name": "sizeofvar",
+  "version": "1.0.0",
+  "description": "Determines the initial memory usage of any javascript variable in NODE.JS",
+  "main": "sizeofvar.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CLDMV/sizeofvar.git"
+  },
+  "keywords": [
+    "size",
+    "variable",
+    "object",
+    "array",
+    "string",
+    "number",
+    "boolean"
+  ],
+  "author": "Shinrai <git@cldmv.net> (http://cldmv.net)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/CLDMV/sizeofvar/issues"
+  },
+  "homepage": "https://github.com/CLDMV/sizeofvar#readme"
+}
