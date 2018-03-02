@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/CLDMV/sizeofvar/issues"
   },
-  "homepage": "https://github.com/CLDMV/sizeofvar#readme"
+  "homepage": "https://github.com/CLDMV/sizeofvar#readme",
+  "devDependencies": {
+    "yargs": "^11.0.0"
+  }
 }
