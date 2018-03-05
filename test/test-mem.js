@@ -1,12 +1,9 @@
 
-// const sizeof = require('object-sizeof');
-const sizeofvar = require('../lib/sizeofvar.js');
+const sizeofvar = require('../sizeofvar.js');
 
 function test(obname, ob) {
 	console.log('=== '+obname+' ===');
-	var l = sizeof(ob);
-	console.log(obname+' [sizeof]: '+l);
-	l = sizeof2(ob);
+	var l = sizeof2(ob);
 	l = sizeof2(ob);
 	console.log(obname+' [sizeof2]: '+l);
 	l = sizeofvar(ob);
