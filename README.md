@@ -5,7 +5,7 @@ sizeofvar allows you to get a realistic memory size of any variable upon initial
 
 ## Install
 ```bash
-npm i sizeofvar --save
+npm i @cldmv/sizeofvar --save
 ```
 
 ## Usage
