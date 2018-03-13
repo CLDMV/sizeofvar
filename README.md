@@ -10,7 +10,7 @@ npm i @cldmv/sizeofvar --save
 
 ## Usage
 ```Javascript
-const sizeofvar = require('sizeofvar');
+const sizeofvar = require('@cldmv/sizeofvar');
 console.log(sizeofvar(variable));
 ```
 
