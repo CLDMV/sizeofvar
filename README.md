@@ -39,3 +39,8 @@ Valid values are:
 * object-key-length
 * object-string
 * string
+
+## ❤️ Contributors
+
+This project exists thanks to all the people who contribute. [[Contributors](https://github.com/CLDMV/sizeofvar/graphs/contributors)].
+<a href="https://github.com/CLDMV/sizeofvar/graphs/contributors"><img src="https://image.cldmv.net/github/contributors/?repo=sizeofvar" /></a>
