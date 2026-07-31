@@ -26,6 +26,6 @@
   },
   "homepage": "https://github.com/CLDMV/sizeofvar#readme",
   "devDependencies": {
-    "yargs": "^11.0.0"
+    "yargs": "^18.1.0"
   }
 }
