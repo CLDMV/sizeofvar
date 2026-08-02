@@ -1,10 +1,18 @@
 {
   "name": "@cldmv/sizeofvar",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Determines the initial memory usage of any javascript variable in NODE.JS",
   "main": "sizeofvar.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "echo '✓ no build step (stopgap: the CI coverage-badge job runs `npm run build`)'",
+    "build:ci": "echo '✓ no build step'",
+    "test": "node tests/run-vitest.mjs",
+    "test:watch": "vitest --config .configs/vitest.config.mjs",
+    "coverage": "node tests/run-vitest.mjs --coverage-quiet",
+    "ci:coverage": "npm run coverage"
   },
   "repository": {
     "type": "git",
@@ -26,6 +34,8 @@
   },
   "homepage": "https://github.com/CLDMV/sizeofvar#readme",
   "devDependencies": {
-    "yargs": "^11.0.0"
+    "@cldmv/vitest-runner": "^1.2.0",
+    "@vitest/coverage-v8": "^4.1.10",
+    "vitest": "^4.1.10"
   }
 }
