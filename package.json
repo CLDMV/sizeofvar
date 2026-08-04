@@ -1,6 +1,6 @@
 {
   "name": "@cldmv/sizeofvar",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Determines the initial memory usage of any javascript variable in NODE.JS",
   "main": "sizeofvar.js",
   "publishConfig": {
