@@ -35,7 +35,7 @@
   "homepage": "https://github.com/CLDMV/sizeofvar#readme",
   "devDependencies": {
     "@cldmv/vitest-runner": "^1.2.0",
-    "@vitest/coverage-v8": "^4.1.10",
+    "@vitest/coverage-v8": "^5.0.0",
     "vitest": "^5.0.0"
   }
 }
