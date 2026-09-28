@@ -267,8 +267,9 @@ jobs:
             # ── Type check (runs inside the coverage-badge job) ────────────────────
             # Skipped deliberately: sizeofvar is a plain single-file CommonJS library
             # with no TypeScript sources and no shipped/generated type declarations, so
-            # there is no meaningful JS type-check to run. ESLint is the static-analysis
-            # net. (Revisit if the package ever ships real type definitions.)
+            # there is no meaningful JS type-check to run. There is no ESLint setup
+            # either, so the repo has no type or lint check yet. (Revisit if the
+            # package ever ships real type definitions or gains an ESLint config.)
             type_check_command: ${{ github.event.inputs.type_check_command || 'npm run test:types' }}
             skip_type_check: true
 
