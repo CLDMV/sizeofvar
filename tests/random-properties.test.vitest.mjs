@@ -1,4 +1,19 @@
 /**
+ *
+ *	@Project: @cldmv/sizeofvar
+ *	@Filename: /tests/random-properties.test.vitest.mjs
+ *	@Date: 2026-08-02T23:40:06-07:00 (1785739206)
+ *	@Author: Nate Corcoran <CLDMV>
+ *	@Email: <Shinrai@users.noreply.github.com>
+ *	-----
+ *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
+ *	@Last modified time: 2026-10-02T11:30:30-07:00 (1790965830)
+ *	-----
+ *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
+ *
+ */
+
+/**
  * @fileoverview Property-based tests for sizeofvar.js using randomized
  * inputs, asserting stable INVARIANTS (type consistency, monotonicity,
  * threshold behavior) rather than a single locked byte count. Complements

@@ -1,4 +1,19 @@
 /**
+ *
+ *	@Project: @cldmv/sizeofvar
+ *	@Filename: /tests/booleans.test.vitest.mjs
+ *	@Date: 2026-08-02T23:40:06-07:00 (1785739206)
+ *	@Author: Nate Corcoran <CLDMV>
+ *	@Email: <Shinrai@users.noreply.github.com>
+ *	-----
+ *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
+ *	@Last modified time: 2026-10-02T11:30:30-07:00 (1790965830)
+ *	-----
+ *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
+ *
+ */
+
+/**
  * @fileoverview Characterization tests for the "boolean" branch of sizeofvar.js.
  *
  * Booleans are the simplest branch: `size += 152` unconditionally, with no

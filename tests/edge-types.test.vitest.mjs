@@ -1,4 +1,19 @@
 /**
+ *
+ *	@Project: @cldmv/sizeofvar
+ *	@Filename: /tests/edge-types.test.vitest.mjs
+ *	@Date: 2026-08-02T23:40:06-07:00 (1785739206)
+ *	@Author: Nate Corcoran <CLDMV>
+ *	@Email: <Shinrai@users.noreply.github.com>
+ *	-----
+ *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
+ *	@Last modified time: 2026-10-02T11:30:30-07:00 (1790965830)
+ *	-----
+ *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
+ *
+ */
+
+/**
  * @fileoverview Characterization tests for values that fall OUTSIDE the six
  * handled switch cases (boolean/number/string/object/array) in sizeofvar.js,
  * plus the two default-parameter branches (`level`/`from_array` omitted).
