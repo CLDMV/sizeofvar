@@ -1,3 +1,17 @@
+/**
+ *
+ *	@Project: @cldmv/sizeofvar
+ *	@Filename: /sizeofvar.js
+ *	@Date: 2018-03-01T23:13:55-08:00 (1519974835)
+ *	@Author: Nate Corcoran <CLDMV>
+ *	@Email: <Shinrai@users.noreply.github.com>
+ *	-----
+ *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
+ *	@Last modified time: 2026-10-02T11:30:30-07:00 (1790965830)
+ *	-----
+ *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
+ *
+ */
 
 	function sizeofvar(object, level, from_array) {
 		var type = false;
