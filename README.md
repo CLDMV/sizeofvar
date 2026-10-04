@@ -3,6 +3,22 @@
 ## Description
 sizeofvar allows you to get a realistic memory size of any variable upon initialization or variable setting.  
 
+## ✨ What's New
+
+### Latest: v1.0.13 (October 2026)
+
+- **Dev-tooling dependency bump ([#32](https://github.com/CLDMV/sizeofvar/pull/32))** — `@cldmv/fix-headers` moves from 2.1.1 to 2.1.4, the tool that maintains the repository's file headers. It produced no header changes here, so only `package.json` and the lockfile changed. The `sizeofvar()` function is unchanged; it's a drop-in replacement for the previous version.
+- [View full v1.0.13 Changelog](https://github.com/CLDMV/sizeofvar/blob/master/docs/changelog/v1/v1.0.13.md)
+
+### Recent Releases
+
+- **v1.0.12** (October 2026) — CI only: the in-repo PR mirror job now always runs and reports under a non-required name instead of being skipped ([Changelog](https://github.com/CLDMV/sizeofvar/blob/master/docs/changelog/v1/v1.0.12.md))
+- **v1.0.11** (October 2026) — CI only: a skipped PR-run mirror job no longer satisfies the `✅ Required PR Check` ruleset gate ([Changelog](https://github.com/CLDMV/sizeofvar/blob/master/docs/changelog/v1/v1.0.11.md))
+- **v1.0.10** (October 2026) — workflows synced to the CLDMV/.github v4.29.2 templates, bundle-size workflow, shared fix-headers config (comment-only header in `sizeofvar.js`); no runtime change ([Changelog](https://github.com/CLDMV/sizeofvar/blob/master/docs/changelog/v1/v1.0.10.md))
+- **v1.0.9** (September 2026) — vitest 5 test toolchain, a CI Node matrix of 22.12.0–26, and signed hotfix-redirector cherry-picks; no runtime change ([Changelog](https://github.com/CLDMV/sizeofvar/blob/master/docs/changelog/v1/v1.0.9.md))
+
+📚 **For complete version history and detailed release notes, see the [docs/changelog/](https://github.com/CLDMV/sizeofvar/tree/master/docs/changelog/) folder.**
+
 ## Install
 ```bash
 npm i @cldmv/sizeofvar --save
