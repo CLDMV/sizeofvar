@@ -7,7 +7,7 @@ sizeofvar allows you to get a realistic memory size of any variable upon initial
 
 ### Latest: v1.0.13 (October 2026)
 
-- **Dev-tooling dependency bump ([#32](https://github.com/CLDMV/sizeofvar/pull/32))** — `@cldmv/fix-headers` moves from 2.1.1 to 2.1.4, the tool that maintains the repository's file headers. It produced no header changes here, so only `package.json` and the lockfile changed. The `sizeofvar()` function is unchanged; it's a drop-in replacement for the previous version.
+- **Dev-tooling dependency bumps ([#32](https://github.com/CLDMV/sizeofvar/pull/32), [#35](https://github.com/CLDMV/sizeofvar/pull/35), [#37](https://github.com/CLDMV/sizeofvar/pull/37))** — `@cldmv/fix-headers` moves from 2.1.1 to 2.2.0, so `@Last modified by` now follows content edits only, `@cldmv/configs` from 1.2.0 to 1.2.4, and the `@cldmv/vitest-runner` test runner from 1.2.0 to 1.5.3 (it now needs Node 22.12.0 or later, the floor CI already used). No file header changed. The `sizeofvar()` function is unchanged and the package still has no runtime dependencies; it's a drop-in replacement for the previous version.
 - [View full v1.0.13 Changelog](https://github.com/CLDMV/sizeofvar/blob/master/docs/changelog/v1/v1.0.13.md)
 
 ### Recent Releases
