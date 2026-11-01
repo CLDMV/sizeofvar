@@ -58,3 +58,8 @@ typings/
 .env
 
 tmp/
+
+# build output
+dist/
+.vitest-coverage-blobs/
+.vitest-coverage-tmp/

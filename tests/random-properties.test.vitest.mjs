@@ -7,21 +7,21 @@
  *	@Email: <Shinrai@users.noreply.github.com>
  *	-----
  *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
- *	@Last modified time: 2026-10-02T11:30:30-07:00 (1790965830)
+ *	@Last modified time: 2026-11-01T12:10:04-08:00 (1793563804)
  *	-----
  *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
  *
  */
 
 /**
- * @fileoverview Property-based tests for sizeofvar.js using randomized
+ * @fileoverview Property-based tests for src/index.mjs using randomized
  * inputs, asserting stable INVARIANTS (type consistency, monotonicity,
  * threshold behavior) rather than a single locked byte count. Complements
  * the exact-value characterization tests in the other files, which cover
  * deterministic inputs.
  */
 import { describe, it, expect } from "vitest";
-import sizeofvar from "../sizeofvar.js";
+import sizeofvar from "../src/index.mjs";
 
 const BIT32 = (256 * 256 * 256 * 256) / 2; // 2147483648
 

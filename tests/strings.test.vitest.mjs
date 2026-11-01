@@ -7,14 +7,14 @@
  *	@Email: <Shinrai@users.noreply.github.com>
  *	-----
  *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
- *	@Last modified time: 2026-10-02T11:30:31-07:00 (1790965831)
+ *	@Last modified time: 2026-11-01T12:10:04-08:00 (1793563804)
  *	-----
  *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
  *
  */
 
 /**
- * @fileoverview Characterization tests for the "string" branch of sizeofvar.js.
+ * @fileoverview Characterization tests for the "string" branch of src/index.mjs.
  *
  * The string branch (lines 43-51) is:
  *   size = 144
@@ -26,7 +26,7 @@
  * matters for the +8 term. That asymmetry is verified explicitly below.
  */
 import { describe, it, expect } from "vitest";
-import sizeofvar from "../sizeofvar.js";
+import sizeofvar from "../src/index.mjs";
 
 describe("sizeofvar: string, top-level (level 0)", () => {
 	it("empty string sizes to 152", () => {

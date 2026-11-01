@@ -7,14 +7,14 @@
  *	@Email: <Shinrai@users.noreply.github.com>
  *	-----
  *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
- *	@Last modified time: 2026-10-02T11:30:30-07:00 (1790965830)
+ *	@Last modified time: 2026-11-01T12:10:03-08:00 (1793563803)
  *	-----
  *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
  *
  */
 
 /**
- * @fileoverview Characterization tests for the "number" branch of sizeofvar.js.
+ * @fileoverview Characterization tests for the "number" branch of src/index.mjs.
  *
  * The number branch (lines 26-42) has three independent knobs:
  *   - a 2^31 magnitude threshold (`bit32 = 256**4 / 2 = 2147483648`) that adds
@@ -23,11 +23,11 @@
  *     `from_array` (offset becomes 32 only when level != 0 AND !from_array);
  *   - an unconditional +8 whenever `from_array` is truthy, regardless of level.
  *
- * All exact values below were captured by executing sizeofvar.js directly, so
+ * All exact values below were captured by executing src/index.mjs directly, so
  * they lock current behavior rather than a hand-derived expectation.
  */
 import { describe, it, expect } from "vitest";
-import sizeofvar from "../sizeofvar.js";
+import sizeofvar from "../src/index.mjs";
 
 const BIT32 = (256 * 256 * 256 * 256) / 2; // 2147483648
 
