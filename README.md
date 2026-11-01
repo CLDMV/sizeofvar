@@ -1,7 +1,8 @@
 # sizeofvar
 
 ## Description
-sizeofvar allows you to get a realistic memory size of any variable upon initialization or variable setting.  
+
+sizeofvar allows you to get a realistic memory size of any variable upon initialization or variable setting.
 
 ## ✨ What's New
 
@@ -20,43 +21,55 @@ sizeofvar allows you to get a realistic memory size of any variable upon initial
 📚 **For complete version history and detailed release notes, see the [docs/changelog/](https://github.com/CLDMV/sizeofvar/tree/master/docs/changelog/) folder.**
 
 ## Install
+
 ```bash
-npm i @cldmv/sizeofvar --save
+npm i @cldmv/sizeofvar
 ```
+
+Requires Node.js `>=22.22.0`.
 
 ## Usage
-```Javascript
-const sizeofvar = require('@cldmv/sizeofvar');
-console.log(sizeofvar(variable));
+
+ESM:
+
+```js
+import sizeofvar from "@cldmv/sizeofvar";
+// or the named export
+import { sizeofvar } from "@cldmv/sizeofvar";
+
+console.log(sizeofvar({ a: 1, b: "two" }));
 ```
 
+CommonJS:
 
+```js
+const sizeofvar = require("@cldmv/sizeofvar");
 
-
-
-## Test Examples
-The included tests allow you to verify that the number returned from this module represents the memory usage reported by node for a variable.
-```Javascript
-node -expose-gc test/test-mem.js command [-v]
+console.log(sizeofvar([1, 2, 3]));
 ```
-#### -expose-gc
-This option is required to run the memory tests. Without it you will recieve an error.
 
-#### test/test-mem.js
-This is the test file. It handles a command to test various variable tests.
+`require()` returns the function itself, as in 1.x; `sizeofvar.sizeofvar` and `sizeofvar.default` point at the same function. The package is ESM, and the CommonJS entry loads it through Node's `require(esm)`, which is why `require()` needs Node.js `>=22.22.0`. On older versions, load it with `import()`.
 
-#### command
-Valid values are:
-* array
-* bool
-* number
-* object
-* object-complex
-* object-key-length
-* object-string
-* string
+Only the package root is exported. Deep imports such as `@cldmv/sizeofvar/sizeofvar.js` no longer resolve.
+
+## Development
+
+The source lives in `src/` (`src/index.mjs`, plus the CommonJS entry `src/index.cjs`), and `npm run build` bundles it into `dist/` with tsup. Without a build, the package name resolves to `dist/` and fails with `ERR_MODULE_NOT_FOUND`. To run a checkout from source instead, pass the `sizeofvar-dev` condition:
+
+```bash
+node --conditions=sizeofvar-dev app.mjs
+# or once per shell
+export NODE_OPTIONS=--conditions=sizeofvar-dev
+```
+
+| Script              | What it does                                                        |
+| ------------------- | ------------------------------------------------------------------- |
+| `npm test`          | runs the vitest suite against `src/`, then builds and tests `dist/` |
+| `npm run coverage`  | runs the vitest suite with coverage                                 |
+| `npm run test:dist` | builds, then checks `dist/index.cjs` against `dist/index.mjs`       |
+| `npm run build:ci`  | lint, format check, type declarations and the build                 |
 
 ## ❤️ Contributors
 
 This project exists thanks to all the people who contribute. [[Contributors](https://github.com/CLDMV/sizeofvar/graphs/contributors)].
-<a href="https://github.com/CLDMV/sizeofvar/graphs/contributors"><img src="https://image.cldmv.net/github/contributors/?repo=sizeofvar" /></a>
+<a href="https://github.com/CLDMV/sizeofvar/graphs/contributors"><img src="https://image.cldmv.net/github/contributors/?repo=sizeofvar" alt="sizeofvar contributors" /></a>

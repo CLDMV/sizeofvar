@@ -7,14 +7,14 @@
  *	@Email: <Shinrai@users.noreply.github.com>
  *	-----
  *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
- *	@Last modified time: 2026-10-02T11:30:30-07:00 (1790965830)
+ *	@Last modified time: 2026-11-01T12:10:02-08:00 (1793563802)
  *	-----
  *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
  *
  */
 
 /**
- * @fileoverview Characterization tests for the "array" branch of sizeofvar.js.
+ * @fileoverview Characterization tests for the "array" branch of src/index.mjs.
  *
  * The array branch (lines 86-110):
  *   - base size is 184 at level 0, 32 at any nested level;
@@ -28,7 +28,7 @@
  * also covers the array-vs-object type-dispatch branch (line 15).
  */
 import { describe, it, expect } from "vitest";
-import sizeofvar from "../sizeofvar.js";
+import sizeofvar from "../src/index.mjs";
 
 describe("sizeofvar: array, base sizes", () => {
 	it("empty array at level 0 sizes to 184 (no +16 for empty)", () => {
@@ -68,7 +68,12 @@ describe("sizeofvar: array, mixed types and nesting", () => {
 	});
 
 	it("array of arrays (nested arrays increment level correctly)", () => {
-		expect(sizeofvar([[1, 2], [3, 4]])).toBe(328);
+		expect(
+			sizeofvar([
+				[1, 2],
+				[3, 4]
+			])
+		).toBe(328);
 	});
 
 	it("three levels of array nesting", () => {

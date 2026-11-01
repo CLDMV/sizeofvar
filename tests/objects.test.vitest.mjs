@@ -7,14 +7,14 @@
  *	@Email: <Shinrai@users.noreply.github.com>
  *	-----
  *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
- *	@Last modified time: 2026-10-02T11:30:30-07:00 (1790965830)
+ *	@Last modified time: 2026-11-01T12:10:04-08:00 (1793563804)
  *	-----
  *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
  *
  */
 
 /**
- * @fileoverview Characterization tests for the "object" branch of sizeofvar.js.
+ * @fileoverview Characterization tests for the "object" branch of src/index.mjs.
  *
  * The object branch (lines 52-85):
  *   - base size is 208 at level 0, 56 at any nested level;
@@ -34,7 +34,7 @@
  * plain objects, Dates, RegExps, and null (which throws — see edge-types).
  */
 import { describe, it, expect } from "vitest";
-import sizeofvar from "../sizeofvar.js";
+import sizeofvar from "../src/index.mjs";
 
 describe("sizeofvar: object, base sizes", () => {
 	it("empty object at level 0 sizes to 208", () => {
@@ -111,8 +111,7 @@ describe("sizeofvar: object, key length has NO effect on size", () => {
 	});
 
 	it("holds across many random key-name lengths for an otherwise-identical value", () => {
-		const makeKey = (len) =>
-			Array.from({ length: len }, () => String.fromCharCode(97 + Math.floor(Math.random() * 26))).join("");
+		const makeKey = (len) => Array.from({ length: len }, () => String.fromCharCode(97 + Math.floor(Math.random() * 26))).join("");
 		const baseline = sizeofvar({ [makeKey(1)]: 42 });
 		for (let i = 0; i < 20; i++) {
 			const len = 1 + Math.floor(Math.random() * 200);
