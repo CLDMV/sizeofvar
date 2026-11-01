@@ -1,3 +1,4 @@
+export default sizeofvar;
 /**
  *
  *	@Project: @cldmv/sizeofvar
@@ -27,6 +28,4 @@
  * @param {boolean} [from_array] - Whether the value is an array element; internal, leave it out when calling.
  * @returns {number} The estimated size in bytes (0 for types it doesn't measure, such as functions or undefined).
  */
-declare function sizeofvar(object: any, level?: number, from_array?: boolean): number;
-export default sizeofvar;
-export { sizeofvar };
+export function sizeofvar(object: any, level?: number, from_array?: boolean): number;
