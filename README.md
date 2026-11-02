@@ -9,7 +9,7 @@ sizeofvar allows you to get a realistic memory size of any variable upon initial
 ### Latest: v1.1.0 (November 2026)
 
 - **ESM with a CommonJS entry** — sizeofvar is now an ES module with a default and a named `sizeofvar` export, built with tsup, and it ships TypeScript declarations. `require("@cldmv/sizeofvar")` still returns the function, and the size heuristic is unchanged ([#59](https://github.com/CLDMV/sizeofvar/pull/59), [#53](https://github.com/CLDMV/sizeofvar/issues/53)).
-- **Breaking despite the minor bump** — the package now requires Node.js 22.22.0 or later (v1.0.14 declared no `engines`), and only the package root is exported, so deep imports such as `@cldmv/sizeofvar/sizeofvar.js` no longer resolve.
+- **Node.js 22.22.0 or later** — the package now declares an `engines` floor (v1.0.14 had none) and exports the package root; import `@cldmv/sizeofvar` rather than a file path.
 - [View full v1.1.0 Changelog](https://github.com/CLDMV/sizeofvar/blob/master/docs/changelog/v1/v1.1.0.md)
 
 ### Recent Releases
