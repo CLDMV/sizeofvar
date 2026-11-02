@@ -25,7 +25,14 @@
 		"types/"
 	],
 	"engines": {
-		"node": ">=22.22.0"
+		"node": ">=16.0.0"
+	},
+	"devEngines": {
+		"runtime": {
+			"name": "node",
+			"version": ">=22.22.0",
+			"onFail": "error"
+		}
 	},
 	"publishConfig": {
 		"access": "public"
