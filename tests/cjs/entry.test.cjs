@@ -7,7 +7,7 @@
  *	@Email: <Shinrai@users.noreply.github.com>
  *	-----
  *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
- *	@Last modified time: 2026-11-01T12:10:03-08:00 (1793563803)
+ *	@Last modified time: 2026-11-01T16:30:32-08:00 (1793579432)
  *	-----
  *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
  *
@@ -23,6 +23,7 @@ const { test } = require("node:test");
 const assert = require("node:assert/strict");
 const path = require("node:path");
 const { pathToFileURL } = require("node:url");
+const { spawnSync } = require("node:child_process");
 
 const dist = path.resolve(__dirname, "../../dist");
 
@@ -50,4 +51,20 @@ test("dist/index.cjs returns the same results as the ESM default export", async 
 test("dist/index.cjs is a verbatim copy of src/index.cjs", () => {
 	const fs = require("node:fs");
 	assert.equal(fs.readFileSync(path.join(dist, "index.cjs"), "utf8"), fs.readFileSync(path.resolve(dist, "../src/index.cjs"), "utf8"));
+});
+
+test("dist/index.cjs fails with a clear message where Node.js has no require(esm)", () => {
+	// --no-experimental-require-module turns require(esm) off, which is what Node.js
+	// versions before 20.19 / 22.12 look like to the entry.
+	const res = spawnSync(
+		process.execPath,
+		["--no-experimental-require-module", "-e", `require(${JSON.stringify(path.join(dist, "index.cjs"))})`],
+		{
+			encoding: "utf8"
+		}
+	);
+	assert.notEqual(res.status, 0);
+	assert.match(res.stderr, /ERR_REQUIRE_ESM/);
+	assert.match(res.stderr, /require\(\) needs Node\.js \^20\.19\.0 or >=22\.13\.0/);
+	assert.match(res.stderr, /import\(\)/);
 });
