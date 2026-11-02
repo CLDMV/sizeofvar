@@ -7,7 +7,7 @@
  *	@Email: <Shinrai@users.noreply.github.com>
  *	-----
  *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
- *	@Last modified time: 2026-10-02T11:30:30-07:00 (1790965830)
+ *	@Last modified time: 2026-11-01T12:10:03-08:00 (1793563803)
  *	-----
  *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
  *
@@ -15,7 +15,7 @@
 
 /**
  * @fileoverview Characterization tests for values that fall OUTSIDE the six
- * handled switch cases (boolean/number/string/object/array) in sizeofvar.js,
+ * handled switch cases (boolean/number/string/object/array) in src/index.mjs,
  * plus the two default-parameter branches (`level`/`from_array` omitted).
  *
  * `undefined`, functions, symbols, and bigints all produce a `type` string
@@ -31,7 +31,7 @@
  * not special-case null, and this test locks that throwing behavior as-is.
  */
 import { describe, it, expect } from "vitest";
-import sizeofvar from "../sizeofvar.js";
+import sizeofvar from "../src/index.mjs";
 
 describe("sizeofvar: types with no matching switch case return 0", () => {
 	it("undefined", () => {

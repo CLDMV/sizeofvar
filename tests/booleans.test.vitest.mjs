@@ -7,23 +7,23 @@
  *	@Email: <Shinrai@users.noreply.github.com>
  *	-----
  *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
- *	@Last modified time: 2026-10-02T11:30:30-07:00 (1790965830)
+ *	@Last modified time: 2026-11-01T12:10:02-08:00 (1793563802)
  *	-----
  *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
  *
  */
 
 /**
- * @fileoverview Characterization tests for the "boolean" branch of sizeofvar.js.
+ * @fileoverview Characterization tests for the "boolean" branch of src/index.mjs.
  *
  * Booleans are the simplest branch: `size += 152` unconditionally, with no
  * dependency on `level` or `from_array`. These tests lock that behavior and
  * also cover how a boolean value nested inside an array vs. an object nets
  * out once the caller's pre-recursion subtraction (144 for array elements,
- * 152 for object values — see sizeofvar.js lines 62-64 and 95-96) is applied.
+ * 152 for object values — see the object branch of src/index.mjs) is applied.
  */
 import { describe, it, expect } from "vitest";
-import sizeofvar from "../sizeofvar.js";
+import sizeofvar from "../src/index.mjs";
 
 describe("sizeofvar: boolean", () => {
 	it("top-level true/false both size to 152", () => {
