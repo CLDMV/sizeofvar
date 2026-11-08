@@ -7,7 +7,7 @@
  *	@Email: <Shinrai@users.noreply.github.com>
  *	-----
  *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
- *	@Last modified time: 2026-11-01T12:10:02-08:00 (1793563802)
+ *	@Last modified time: 2026-11-07T22:11:34-08:00 (1794118294)
  *	-----
  *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
  *
@@ -28,7 +28,7 @@
  * also covers the array-vs-object type-dispatch branch (line 15).
  */
 import { describe, it, expect } from "vitest";
-import sizeofvar from "../src/index.mjs";
+import sizeofvar from "@cldmv/sizeofvar";
 
 describe("sizeofvar: array, base sizes", () => {
 	it("empty array at level 0 sizes to 184 (no +16 for empty)", () => {

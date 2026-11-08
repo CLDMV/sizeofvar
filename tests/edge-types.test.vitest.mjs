@@ -7,7 +7,7 @@
  *	@Email: <Shinrai@users.noreply.github.com>
  *	-----
  *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
- *	@Last modified time: 2026-11-01T12:10:03-08:00 (1793563803)
+ *	@Last modified time: 2026-11-07T22:11:34-08:00 (1794118294)
  *	-----
  *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
  *
@@ -31,7 +31,7 @@
  * not special-case null, and this test locks that throwing behavior as-is.
  */
 import { describe, it, expect } from "vitest";
-import sizeofvar from "../src/index.mjs";
+import sizeofvar from "@cldmv/sizeofvar";
 
 describe("sizeofvar: types with no matching switch case return 0", () => {
 	it("undefined", () => {

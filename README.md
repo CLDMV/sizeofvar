@@ -64,12 +64,13 @@ node --conditions=sizeofvar-dev app.mjs
 export NODE_OPTIONS=--conditions=sizeofvar-dev
 ```
 
-| Script             | What it does                                                        |
-| ------------------ | ------------------------------------------------------------------- |
-| `npm test`         | runs the vitest suite against `src/`, then builds and tests `dist/` |
-| `npm run coverage` | runs the vitest suite with coverage                                 |
-| `npm run test:cjs` | builds, then checks `dist/index.cjs` against `dist/index.mjs`       |
-| `npm run build:ci` | lint, format check, type declarations and the build                 |
+| Script              | What it does                                                        |
+| ------------------- | ------------------------------------------------------------------- |
+| `npm test`          | runs the vitest suite against `src/`, then builds and tests `dist/` |
+| `npm run test:dist` | builds, then runs the vitest suite against `dist/`                  |
+| `npm run coverage`  | runs the vitest suite with coverage                                 |
+| `npm run test:cjs`  | builds, then checks `dist/index.cjs` against `dist/index.mjs`       |
+| `npm run build:ci`  | lint, format check, type declarations and the build                 |
 
 ## ❤️ Contributors
 
