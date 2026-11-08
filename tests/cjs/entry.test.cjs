@@ -7,7 +7,7 @@
  *	@Email: <Shinrai@users.noreply.github.com>
  *	-----
  *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
- *	@Last modified time: 2026-11-01T16:30:32-08:00 (1793579432)
+ *	@Last modified time: 2026-11-07T20:55:57-08:00 (1794113757)
  *	-----
  *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
  *
@@ -15,7 +15,7 @@
 
 /**
  * @fileoverview Checks the built dist/ output: dist/index.cjs is the function exported by dist/index.mjs, with
- * `.sizeofvar` and `.default` pointing at it, and returns the same results. Run after `npm run build` (see `test:dist`).
+ * `.sizeofvar` and `.default` pointing at it, and returns the same results. Run after `npm run build` (see `test:cjs`).
  */
 "use strict";
 
