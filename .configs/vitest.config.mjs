@@ -7,13 +7,14 @@
  *	@Email: <Shinrai@users.noreply.github.com>
  *	-----
  *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
- *	@Last modified time: 2026-11-01T12:09:56-08:00 (1793563796)
+ *	@Last modified time: 2026-11-07T22:11:32-08:00 (1794118292)
  *	-----
  *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
  *
  */
 
-import { defineConfig } from "vitest/config";
+import { defineConfig, mergeConfig } from "vitest/config";
+import { devCondition } from "@cldmv/configs/vitest.config.mjs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 
@@ -21,35 +22,28 @@ import path from "node:path";
 // matter what cwd vitest is invoked from.
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
-export default defineConfig({
-	root,
-	resolve: {
-		// Replaces the defaults, so keep the usual ones alongside the package's own
-		// condition (which routes the "." export to src/).
-		conditions: ["sizeofvar-dev", "module", "browser", "development|production"]
-	},
-	ssr: {
-		// Vitest often goes through the SSR resolve pipeline even in node tests.
-		resolve: {
-			conditions: ["sizeofvar-dev", "node", "development|production"]
-		}
-	},
-	test: {
-		include: ["tests/**/*.test.vitest.mjs"],
-		exclude: ["node_modules"],
-		environment: "node",
-		testTimeout: 30000,
-		// Workers get the condition on their node CLI (execArgv), so Node's own resolver
-		// loads src/ too.
-		nodeOptions: ["--conditions=sizeofvar-dev"],
-		// "dot" keeps non-interactive CI logs to one character per test file. The
-		// final "Test Files X passed" / "Tests Y passed" summary is unaffected.
-		reporters: ["dot"],
-		coverage: {
-			provider: "v8",
-			include: ["src/**/*.mjs"],
-			exclude: ["**/*.json", "tests/**", "test/**"],
-			reporter: ["text", "html", "json-summary", "json"]
-		}
-	}
-});
+// `--mode=dist` (npm run test:dist) leaves the -dev condition off, so tests that import "@cldmv/sizeofvar" by name run
+// against the build in dist/ instead of src/.
+export default defineConfig(({ mode }) =>
+	mergeConfig(
+		mode === "dist" ? {} : devCondition({ root }),
+		defineConfig({
+			root,
+			test: {
+				include: ["tests/**/*.test.vitest.mjs"],
+				exclude: ["node_modules"],
+				environment: "node",
+				testTimeout: 30000,
+				// "dot" keeps non-interactive CI logs to one character per test file. The
+				// final "Test Files X passed" / "Tests Y passed" summary is unaffected.
+				reporters: ["dot"],
+				coverage: {
+					provider: "v8",
+					include: ["src/**/*.mjs"],
+					exclude: ["**/*.json", "tests/**", "test/**"],
+					reporter: ["text", "html", "json-summary", "json"]
+				}
+			}
+		})
+	)
+);
