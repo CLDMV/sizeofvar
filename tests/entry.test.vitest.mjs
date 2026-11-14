@@ -24,6 +24,8 @@ import sizeofvar, { sizeofvar as named } from "../src/index.mjs";
 import * as byName from "@cldmv/sizeofvar";
 
 const require = createRequire(import.meta.url);
+// These two check that the package name resolves to src/, so `npm run test:dist` (`--mode=dist`) skips them.
+const inDist = import.meta.env.MODE === "dist";
 
 const samples = [true, 0, 2 ** 31, "", "hello world", [], [1, "a", false], {}, { a: 1, b: "two", c: [3], d: { e: true } }];
 
@@ -34,7 +36,7 @@ describe("ESM entry", () => {
 		expect(sizeofvar.name).toBe("sizeofvar");
 	});
 
-	it("resolves the package name to src/ under the sizeofvar-dev condition", () => {
+	it.skipIf(inDist)("resolves the package name to src/ under the sizeofvar-dev condition", () => {
 		expect(byName.default).toBe(sizeofvar);
 		expect(byName.sizeofvar).toBe(sizeofvar);
 		expect(Object.keys(byName).sort()).toEqual(["default", "sizeofvar"]);
@@ -56,7 +58,7 @@ describe("CJS entry (src/index.cjs)", () => {
 		}
 	});
 
-	it("is what require() of the package name returns under the sizeofvar-dev condition", () => {
+	it.skipIf(inDist)("is what require() of the package name returns under the sizeofvar-dev condition", () => {
 		expect(require("@cldmv/sizeofvar")).toBe(cjs);
 	});
 });
