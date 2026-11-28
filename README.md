@@ -56,7 +56,7 @@ Only the package root is exported. Deep imports such as `@cldmv/sizeofvar/sizeof
 
 ## Development
 
-The source lives in `src/` (`src/index.mjs`, plus the CommonJS entry `src/index.cjs`), and `npm run build` bundles it into `dist/` with tsup. Without a build, the package name resolves to `dist/` and fails with `ERR_MODULE_NOT_FOUND`. To run a checkout from source instead, pass the `sizeofvar-dev` condition:
+The source lives in `src/` (`src/index.mjs`, plus the CommonJS entry `src/index.cjs`), and `npm run build` builds it into `dist/`, one minified file per source file. Without a build, the package name resolves to `dist/` and fails with `ERR_MODULE_NOT_FOUND`. To run a checkout from source instead, pass the `sizeofvar-dev` condition:
 
 ```bash
 node --conditions=sizeofvar-dev app.mjs

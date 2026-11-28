@@ -39,7 +39,7 @@ jobs:
         uses: CLDMV/.github/.github/workflows/reusable-bundle-size.yml@v4
         with:
             build_command: "npm run build:ci"
-            # The published files: the tsup bundle and the CJS entry copied next to it.
+            # The published files: the minified ESM build and the CJS entry copied next to it.
             dist_paths: "dist/**.mjs,dist/**.cjs"
             # warning_pct: 5
             # warning_bytes: 500
