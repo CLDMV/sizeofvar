@@ -14,20 +14,11 @@
  */
 
 /**
- * CommonJS entry point: a thin, synchronous re-export of the ESM build.
+ * @fileoverview CommonJS entry point: the generic CLDMV drop-in shim (CLDMV/.github docs/conventions/package-layout.md).
  *
- * Node's `require()` loads an ES module synchronously as long as its module graph has no top-level await, so this
- * file re-exports ./index.mjs instead of tsup bundling a second copy of the library for CommonJS.
- *
- * `require("@cldmv/sizeofvar")` has always returned the function itself, so that stays the export, with `.sizeofvar`
- * and `.default` pointing at the same function.
- *
- * Node.js versions without require(esm) would fail with a bare ERR_REQUIRE_ESM, so the check below fails early with a
- * message that says what to do instead.
- *
- * tsup.config.mjs copies this file verbatim to dist/index.cjs. Its `require("./index.mjs")` resolves to the sibling
- * src/index.mjs in a checkout and to the bundle in dist/.
- *
+ * It returns what `import` gives: the single distinct exported value when there is one (here `sizeofvar`, which is also
+ * the default export), so `require("@cldmv/sizeofvar")` is the function itself, with no attached properties.
+ * tsup.config.mjs copies this file verbatim to dist/index.cjs, where `./index.mjs` resolves to the built entry.
  * @module @cldmv/sizeofvar
  */
 "use strict";
@@ -40,8 +31,12 @@ if (!process.features?.require_module) {
 	throw error;
 }
 
-const sizeofvar = require("./index.mjs").default;
-
-module.exports = sizeofvar;
-module.exports.sizeofvar = sizeofvar;
-module.exports.default = sizeofvar;
+// Same exports as `import`. One distinct exported value (aliases of it count once) comes back as that value,
+// so require(x)(...) works; anything else comes back as the module object ({ default, ...named }).
+const esm = require("./index.mjs");
+const values = new Set(
+	Object.keys(esm)
+		.filter((key) => key !== "__esModule")
+		.map((key) => esm[key])
+);
+module.exports = values.size === 1 ? values.values().next().value : esm;

@@ -14,8 +14,8 @@
  */
 
 /**
- * @fileoverview Checks the built dist/ output: dist/index.cjs is the function exported by dist/index.mjs, with
- * `.sizeofvar` and `.default` pointing at it, and returns the same results. Run after `npm run build` (see `test:cjs`).
+ * @fileoverview Checks the built dist/ output: dist/index.cjs is the function exported by dist/index.mjs, with no
+ * `.sizeofvar` or `.default` alias properties, and returns the same results. Run after `npm run build` (see `test:cjs`).
  */
 "use strict";
 
@@ -34,8 +34,10 @@ test("dist/index.cjs is the function exported by dist/index.mjs", async () => {
 	const cjs = require(path.join(dist, "index.cjs"));
 	assert.equal(typeof cjs, "function");
 	assert.equal(cjs, esm.default);
-	assert.equal(cjs.sizeofvar, cjs);
-	assert.equal(cjs.default, cjs);
+	assert.equal(cjs.sizeofvar, undefined);
+	assert.equal(cjs.default, undefined);
+	assert.equal(esm.default.sizeofvar, undefined);
+	assert.equal(esm.default.default, undefined);
 	assert.equal(esm.sizeofvar, esm.default);
 	assert.equal(cjs.name, "sizeofvar");
 });
@@ -46,6 +48,22 @@ test("dist/index.cjs returns the same results as the ESM default export", async 
 	for (const value of samples) {
 		assert.equal(cjs(value), esm.default(value));
 	}
+});
+
+test("dist/index.cjs leaves the shared function unmutated in a fresh process", () => {
+	const res = spawnSync(
+		process.execPath,
+		[
+			"-e",
+			`const f = require(${JSON.stringify(path.join(dist, "index.cjs"))});
+import(${JSON.stringify(pathToFileURL(path.join(dist, "index.mjs")).href)}).then((m) => {
+	console.log(JSON.stringify([typeof f, f === m.default, Object.keys(f), "sizeofvar" in f, "default" in f]));
+});`
+		],
+		{ encoding: "utf8" }
+	);
+	assert.equal(res.status, 0, res.stderr);
+	assert.equal(res.stdout.trim(), JSON.stringify(["function", true, [], false, false]));
 });
 
 test("dist/index.cjs is a verbatim copy of src/index.cjs", () => {

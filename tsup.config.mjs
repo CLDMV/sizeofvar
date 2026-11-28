@@ -17,7 +17,7 @@
  * @fileoverview Bundler config: produces the published dist/ output from source.
  *
  *  - dist/index.mjs: tsup bundle of src/index.mjs (minified, names kept).
- *  - dist/index.cjs: the thin, hand-written CJS entry src/index.cjs, copied verbatim by onSuccess below and never
+ *  - dist/index.cjs: the generic CJS shim src/index.cjs, copied verbatim by onSuccess below and never
  *    transformed by esbuild. It `require()`s ./index.mjs, which Node loads synchronously because the module graph has
  *    no top-level await.
  *
