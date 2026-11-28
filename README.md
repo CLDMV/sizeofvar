@@ -50,7 +50,7 @@ const sizeofvar = require("@cldmv/sizeofvar");
 console.log(sizeofvar([1, 2, 3]));
 ```
 
-`require()` returns the function itself, as in 1.x; `sizeofvar.sizeofvar` and `sizeofvar.default` point at the same function. The package is ESM, and the CommonJS entry loads it through Node's `require(esm)`, which is why `require()` needs Node.js `^20.19.0 || >=22.13.0`. On older versions, load it with `import()`.
+`require()` returns the `sizeofvar` function itself, with no attached properties, so `const { sizeofvar } = require(...)` and `require(...).default` no longer work; use `const sizeofvar = require(...)`. The package is ESM, and the CommonJS entry loads it through Node's `require(esm)`, which is why `require()` needs Node.js `^20.19.0 || >=22.13.0`. On older versions, load it with `import()`.
 
 Only the package root is exported. Deep imports such as `@cldmv/sizeofvar/sizeofvar.js` no longer resolve.
 
