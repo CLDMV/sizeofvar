@@ -1,13 +1,13 @@
 /**
  *
  *	@Project: @cldmv/sizeofvar
- *	@Filename: /.configs/vitest.config.mjs
+ *	@Filename: .configs/vitest.config.mjs
  *	@Date: 2026-08-01T23:22:31-07:00 (1785651751)
  *	@Author: Nate Corcoran <CLDMV>
  *	@Email: <Shinrai@users.noreply.github.com>
  *	-----
  *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
- *	@Last modified time: 2026-11-07T22:11:32-08:00 (1794118292)
+ *	@Last modified time: 2026-11-28T10:00:58-08:00 (1795888858)
  *	-----
  *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
  *

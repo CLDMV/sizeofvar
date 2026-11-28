@@ -1,13 +1,13 @@
 /**
  *
  *	@Project: @cldmv/sizeofvar
- *	@Filename: /src/index.mjs
+ *	@Filename: src/index.mjs
  *	@Date: 2018-03-01T23:13:55-08:00 (1519974835)
  *	@Author: Nate Corcoran <CLDMV>
  *	@Email: <Shinrai@users.noreply.github.com>
  *	-----
  *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
- *	@Last modified time: 2026-10-02T11:30:30-07:00 (1790965830)
+ *	@Last modified time: 2026-11-28T10:01:00-08:00 (1795888860)
  *	-----
  *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
  *

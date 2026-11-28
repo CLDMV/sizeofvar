@@ -2,13 +2,13 @@
 /**
  *
  *	@Project: @cldmv/sizeofvar
- *	@Filename: /.githooks/install.mjs
+ *	@Filename: .githooks/install.mjs
  *	@Date: 2026-10-24T20:19:31-07:00 (1792898371)
  *	@Author: Nate Corcoran <CLDMV>
  *	@Email: <Shinrai@users.noreply.github.com>
  *	-----
  *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
- *	@Last modified time: 2026-11-01T12:09:56-08:00 (1793563796)
+ *	@Last modified time: 2026-11-28T10:00:58-08:00 (1795888858)
  *	-----
  *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
  *
