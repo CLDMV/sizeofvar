@@ -1,12 +1,12 @@
 #
 #	@Project: @cldmv/sizeofvar
-#	@Filename: /.github/workflows/bundle-size.yml
+#	@Filename: .github/workflows/bundle-size.yml
 #	@Date: 2026-05-20T00:00:00-07:00 (1779260400)
 #	@Author: Nate Corcoran <CLDMV>
 #	@Email: <Shinrai@users.noreply.github.com>
 #	-----
 #	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
-#	@Last modified time: 2026-11-01T12:09:57-08:00 (1793563797)
+#	@Last modified time: 2026-11-28T10:00:58-08:00 (1795888858)
 #	-----
 #	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
 #
@@ -39,7 +39,7 @@ jobs:
         uses: CLDMV/.github/.github/workflows/reusable-bundle-size.yml@v4
         with:
             build_command: "npm run build:ci"
-            # The published files: the tsup bundle and the CJS entry copied next to it.
+            # The published files: the minified ESM build and the CJS entry copied next to it.
             dist_paths: "dist/**.mjs,dist/**.cjs"
             # warning_pct: 5
             # warning_bytes: 500

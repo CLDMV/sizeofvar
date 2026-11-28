@@ -1,13 +1,13 @@
 /**
  *
  *	@Project: @cldmv/sizeofvar
- *	@Filename: /src/index.cjs
+ *	@Filename: src/index.cjs
  *	@Date: 2026-11-01T12:07:23-08:00 (1793563643)
  *	@Author: Nate Corcoran <CLDMV>
  *	@Email: <Shinrai@users.noreply.github.com>
  *	-----
  *	@Last modified by: Nate Corcoran <CLDMV> (Shinrai@users.noreply.github.com)
- *	@Last modified time: 2026-11-01T16:30:32-08:00 (1793579432)
+ *	@Last modified time: 2026-11-28T10:01:00-08:00 (1795888860)
  *	-----
  *	@Copyright: Copyright (c) 2013-2026 Catalyzed Motivation Inc. All rights reserved.
  *
@@ -18,7 +18,7 @@
  *
  * It returns what `import` gives: the single distinct exported value when there is one (here `sizeofvar`, which is also
  * the default export), so `require("@cldmv/sizeofvar")` is the function itself, with no attached properties.
- * tsup.config.mjs copies this file verbatim to dist/index.cjs, where `./index.mjs` resolves to the built entry.
+ * scripts/build.mjs copies this file verbatim to dist/index.cjs, where `./index.mjs` resolves to the built entry.
  * @module @cldmv/sizeofvar
  */
 "use strict";
