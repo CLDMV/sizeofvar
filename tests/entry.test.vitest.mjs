@@ -15,7 +15,7 @@
 
 /**
  * @fileoverview Checks the source entry points: the ESM default and named exports are the same function, and the CJS
- * entry src/index.cjs (loaded through `require`) returns that function, as `require("@cldmv/sizeofvar")` always has.
+ * entry src/index.cjs (loaded through `require`) returns that function with no attached properties.
  * The package name resolves to src/ here because the suite runs with the `sizeofvar-dev` condition.
  */
 import { createRequire } from "node:module";
@@ -24,6 +24,8 @@ import sizeofvar, { sizeofvar as named } from "../src/index.mjs";
 import * as byName from "@cldmv/sizeofvar";
 
 const require = createRequire(import.meta.url);
+// These two check that the package name resolves to src/, so `npm run test:dist` (`--mode=dist`) skips them.
+const inDist = import.meta.env.MODE === "dist";
 
 const samples = [true, 0, 2 ** 31, "", "hello world", [], [1, "a", false], {}, { a: 1, b: "two", c: [3], d: { e: true } }];
 
@@ -34,7 +36,7 @@ describe("ESM entry", () => {
 		expect(sizeofvar.name).toBe("sizeofvar");
 	});
 
-	it("resolves the package name to src/ under the sizeofvar-dev condition", () => {
+	it.skipIf(inDist)("resolves the package name to src/ under the sizeofvar-dev condition", () => {
 		expect(byName.default).toBe(sizeofvar);
 		expect(byName.sizeofvar).toBe(sizeofvar);
 		expect(Object.keys(byName).sort()).toEqual(["default", "sizeofvar"]);
@@ -44,10 +46,12 @@ describe("ESM entry", () => {
 describe("CJS entry (src/index.cjs)", () => {
 	const cjs = require("../src/index.cjs");
 
-	it("is the function itself, with .sizeofvar and .default pointing at it", () => {
+	it("is the function itself, with no .sizeofvar or .default alias properties", () => {
 		expect(typeof cjs).toBe("function");
-		expect(cjs.sizeofvar).toBe(cjs);
-		expect(cjs.default).toBe(cjs);
+		expect(cjs.name).toBe("sizeofvar");
+		expect(cjs.sizeofvar).toBeUndefined();
+		expect(cjs.default).toBeUndefined();
+		expect(Object.keys(cjs)).toEqual([]);
 	});
 
 	it("returns the same results as the ESM default export", () => {
@@ -56,7 +60,7 @@ describe("CJS entry (src/index.cjs)", () => {
 		}
 	});
 
-	it("is what require() of the package name returns under the sizeofvar-dev condition", () => {
+	it.skipIf(inDist)("is what require() of the package name returns under the sizeofvar-dev condition", () => {
 		expect(require("@cldmv/sizeofvar")).toBe(cjs);
 	});
 });
